@@ -36,34 +36,51 @@ public class ValleyDepotApplication {
     Scanner in = new Scanner(System.in);
     
     // Creates customers in the system
-    Customer nick = new Customer("Nick", "Garcia", "1107 S Dickenson Ave", "5714204140", "garcianm@dukes.jmu.edu"); 
-    Customer owen = new Customer("Owen", "Leonard", "401 Weaver St", "7021114521", "leonarop@dukes.jmu.edu");
-    Customer barth = new Customer("Nick", "Barth", "123 Greenbrair Dr", "5712223341", "barthna@dukes.jmu.edu");
-    Customer kyle = new Customer("Kyle", "Bowles", "55 S Main St", "7035550124", "bowlesk@dukes.jmu.edu");
+    Customer nick = new Customer("Nick", "Garcia", "1107 S Dickenson Ave", "5714204140", "garcianm@dukes.jmu.edu", countID); 
+    countID++;
+    Customer owen = new Customer("Owen", "Leonard", "401 Weaver St", "7021114521", "leonarop@dukes.jmu.edu", countID);
+    countID++;
+    Customer barth = new Customer("Nick", "Barth", "123 Greenbrair Dr", "5712223341", "barthna@dukes.jmu.edu", countID);
+    countID++;
+    Customer kyle = new Customer("Kyle", "Bowles", "55 S Main St", "7035550124", "bowlesk@dukes.jmu.edu", countID);
+    countID++;
     customerList.add(nick);
     customerList.add(owen);
     customerList.add(barth);
     customerList.add(kyle);
     
     // Creates contractors in the system 
-    Contractor nickBarth = new Contractor("Nick", "Barth", "Costco", "1107 S Dickenson Ave", "5714204140", "garcianm@dukes.jmu.edu"); 
-    Contractor leonard = new Contractor("Owen", "Leonard", "Best Buy", "401 Weaver St", "7021114521", "leonarop@dukes.jmu.edu");
-    Contractor garcia = new Contractor("Nick", "Garcia", "IKEA", "123 Greenbrair Dr", "5712223341", "barthna@dukes.jmu.edu");
-    contractorList.add(nickBarth);
-    contractorList.add(leonard);
+    Contractor nickBarth = new Contractor("Nick", "Barth", "Costco", "1107 S Dickenson Ave", "5714204140", "garcianm@dukes.jmu.edu", countID); 
+    countID++;
+    Contractor leonard = new Contractor("Owen", "Leonard", "Best Buy", "401 Weaver St", "7021114521", "leonarop@dukes.jmu.edu", countID);
+    countID++;
+    Contractor garcia = new Contractor("Nick", "Garcia", "IKEA", "123 Greenbrair Dr", "5712223341", "barthna@dukes.jmu.edu", countID);
+    countID++;
     contractorList.add(garcia);
+    contractorList.add(leonard);
+    contractorList.add(nickBarth);
     
     // Creates items in the system
-    itemList.add(new Item("Lamp", 2.45, "Nightstand Lamp", 24.99, 12.99, 30, 1));
-        Item tv = new Item("LED TV", 14.0, "50\" LED Television", 599.90, 300.00, 10, 2);
-        Item table = new Item("Coffee Table", 35.00, "IKEA Coffee Table Concrete & Glass",159.00, 100.00, 15, 3);
-        Item candle = new Item("Scented Candle",1.5,"Lavendar Oaks Farm Candle",29.99, 17.99, 50, 1);
-        Item computer = new Item("Laptop",4.0,"Dell Laptop",1299.99, 800.00, 30, 2);
-        Item couch = new Item("Recliner Couch",30.0,"IKEA Leather Recliner Couch",129.99, 90.00, 50, 3);
-        Item monitor = new Item("Monitor",4.0,"Dell Monior",1099.99, 700.00, 30, 2);
-        Item plant = new Item("Plant", 4.0, "Outdoor Fern", 22.90, 7.00, 30, 1);
-        Item flower = new Item("Flower", 2.0, "Purple Flower", 14.99, 5.00, 30, 1);
-        Item chair = new Item("Desk Chair",16.0, "IKEA Brown Desk Chair",22.99, 15.00, 50, 3);
+    itemList.add(new Item(countID, "Lamp", 2.45, "Nightstand Lamp", 24.99, 12.99, 30, 1));
+        countID++;
+        Item tv = new Item(countID, "LED TV", 14.0, "50\" LED Television", 599.90, 300.00, 10, 2);
+        countID++;
+        Item table = new Item(countID, "Coffee Table", 35.00, "IKEA Coffee Table Concrete & Glass",159.00, 100.00, 15, 3);
+        countID++;
+        Item candle = new Item(countID, "Scented Candle",1.5,"Lavendar Oaks Farm Candle",29.99, 17.99, 50, 1);
+        countID++;
+        Item computer = new Item(countID, "Laptop",4.0,"Dell Laptop",1299.99, 800.00, 30, 2);
+        countID++;
+        Item couch = new Item(countID, "Recliner Couch",30.0,"IKEA Leather Recliner Couch",129.99, 90.00, 50, 3);
+        countID++;
+        Item monitor = new Item(countID, "Monitor",4.0,"Dell Monior",1099.99, 700.00, 30, 2);
+        countID++;
+        Item plant = new Item(countID, "Plant", 4.0, "Outdoor Fern", 22.90, 7.00, 30, 1);
+        countID++;
+        Item flower = new Item(countID, "Flower", 2.0, "Purple Flower", 14.99, 5.00, 30, 1);
+        countID++;
+        Item chair = new Item(countID, "Desk Chair",16.0, "IKEA Brown Desk Chair",22.99, 15.00, 50, 3);
+        countID++;
         itemList.add(tv);
         itemList.add(table);
         itemList.add(candle);
@@ -75,29 +92,30 @@ public class ValleyDepotApplication {
         itemList.add(chair);
         
         // Creates vendors in the system
-        Vendor vendor1 = new Vendor("Costco", "1830 Reservoir Street", "5404328989");
-        Vendor vendor2 = new Vendor("Best Buy", "1800 South Main Street", "5404329460");
-        Vendor vendor3 = new Vendor("IKEA", "920 Port Republic Road", "5406104320");
-        vendorList.add(vendor1);
-        vendorList.add(vendor2);
-        vendorList.add(vendor3);
-        
-        // Creates sales in the system
-        Sale sale1 = new Sale(tv, 2, "11/11/18", nick);
-        Sale sale2 = new Sale(computer, 1, "11/12/18", barth);
-        Sale sale3 = new Sale(chair, 2, "10/30/18", owen);
-        Sale sale4 = new Sale(couch, 3, "10/31/18", kyle);
-        Sale sale5 = new Sale(candle, 5, "11/1//18", nickBarth);
+        vendorList.add(new Vendor(countID, "Costco", "1830 Reservoir Street", "5404328989"));
+        countID++;
+        vendorList.add(new Vendor(countID, "Best Buy", "1800 South Main Street", "5404329460"));
+        countID++;
+        vendorList.add(new Vendor(countID, "IKEA", "920 Port Republic Road", "5406104320"));
+        countID++;
+      saleList.add(new Sale(tv, 2, "11/11/18", nick, countID));
+        countID++;
+        Sale sale1 = new Sale(computer, 1, "11/12/18", barth , countID);
+        countID++;
+        Sale sale2 = new Sale(chair, 2, "10/30/18", owen , countID);
+        countID++;
+        Sale sale3 = new Sale(couch, 3, "10/31/18", kyle, countID);
+        countID++;
+        Sale sale4 = new Sale(candle, 5, "11/1//18", nickBarth, countID);
+        countID++;
         saleList.add(sale1);
-        tv.recordTransaction(sale1);
+        computer.recordTransaction(sale1);
         saleList.add(sale2);
-        computer.recordTransaction(sale2);
+        chair.recordTransaction(sale2);
         saleList.add(sale3);
-        chair.recordTransaction(sale3);
+        couch.recordTransaction(sale3);
         saleList.add(sale4);
-        couch.recordTransaction(sale4);
-        saleList.add(sale5);
-        candle.recordTransaction(sale5);
+        candle.recordTransaction(sale4);
     
     // Allows user to make a selecion on the main menu
     while (menuChoice != 7)
@@ -121,7 +139,7 @@ public class ValleyDepotApplication {
         {
             // Creating/Editing a Customer
             case 1:
-                int choice;
+                int uniqueID, choice;
                 String scannerRead;
                 Customer tempCust;
                 Contractor tempCont;
@@ -138,6 +156,7 @@ public class ValleyDepotApplication {
                 //Creates Customer Object, add it to customer ArrayList
                 switch (createOrEditChoice) {
                     case "1a":
+                        uniqueID = countID;
                         System.out.println("Enter Customer First Name: ");
                         firstName = in.nextLine();
                         while(firstName.equals("") || firstName.equals(" "))
@@ -168,11 +187,13 @@ public class ValleyDepotApplication {
                         }
                         System.out.println("Enter Customer Email Address: ");
                         emailAddress = in.nextLine();
-                        customerList.add(new Customer(firstName, lastName, address, phoneNumber, emailAddress));
+                        customerList.add(new Customer(firstName, lastName, address, phoneNumber, emailAddress, countID));
+                        countID++;
                         break;
                     
                     //Creates Contractor Object, add it to contractor ArrayList
                     case "1b":
+                        uniqueID = countID;
                         String businessName;
                         System.out.println("Enter Contractor First Name: ");
                         firstName = in.nextLine();
@@ -214,14 +235,15 @@ public class ValleyDepotApplication {
                         System.out.println("Enter Contractor Email Address: ");
                         emailAddress = in.nextLine();
                         contractorList.add(new Contractor(firstName, lastName, businessName, address, phoneNumber,
-                                emailAddress));
+                                emailAddress, countID));
+                        countID++;
                         break;
                     // Edits Customer Object, add it to customer ArrayList
                     case "2a":
                         for(int x = 0; x < customerList.size();x++){
                             System.out.println("Option # " + x + ": " + customerList.get(x).toString());
                         }
-                        System.out.println("Enter the Option # to edit a customer from the list above: ");
+                        System.out.println("Enter the Option # to edit a customter from the list above: ");
                         choice = in.nextInt();
                         in.nextLine();
                         tempCust = customerList.get(choice);
@@ -310,7 +332,10 @@ public class ValleyDepotApplication {
                             case "first name":
                             case "First name":
                             case "First Name":
+                                System.out.println("What would you like to change " + tempCont.getFirstName() + " to: \n");
+                                contractorList.get(choice).setFirstName(in.nextLine());
                                 {
+                                    System.out.println("Please make an entry.");
                                     System.out.print("What would you like to change " + tempCont.getFirstName() + " to: \n");
                                     customerList.get(choice).setFirstName(in.nextLine());
                                 }
@@ -322,6 +347,7 @@ public class ValleyDepotApplication {
                                 contractorList.get(choice).setLastName(in.nextLine());
                                 while(contractorList.get(choice).getFirstName().equals("") || contractorList.get(choice).getFirstName().equals(" "))
                                 {
+                                    System.out.println("Please make an entry.");
                                     System.out.print("What would you like to change " + tempCont.getFirstName() + " to: \n");
                                     customerList.get(choice).setLastName(in.nextLine());
                                 }
@@ -383,6 +409,7 @@ public class ValleyDepotApplication {
                 in.nextLine();
                 switch (invChoice) {
                     case 1:
+                        uniqueID = countID;
                         System.out.println("Enter Item Name: ");
                         itemName = in.nextLine();
                         while(itemName.equals("") || itemName.equals(" "))
@@ -438,9 +465,9 @@ public class ValleyDepotApplication {
                         System.out.println("Enter Vendor ID: ");
                         vendorID = in.nextInt();
                         in.nextLine();
-                        itemList.add(new Item(itemName, weight, description, salePrice, pricePaid, inventory, vendorList.get(vendorID).vendorID));
+                        itemList.add(new Item(countID, itemName, weight, description, salePrice, pricePaid, inventory, vendorList.get(vendorID).vendorID));
+                        countID++;
                         break;
-                        
                     case 2:
                         for(int x = 0; x < itemList.size();x++){
                             System.out.println("Option # " + x + ": " + itemList.get(x).toString());
@@ -520,13 +547,25 @@ public class ValleyDepotApplication {
                                         itemList.get(choice1).addInventory(inventoryChange);
                                         break;
                                     case 2:
+                                        int inventoryIndicator;
                                         System.out.print("Enter Inventory Change: ");
                                         inventoryChange = in.nextInt();
-                                        itemList.get(choice1).subtractInventory(inventoryChange);
+                                        inventoryIndicator = itemList.get(choice1).inventoryStatus(inventoryChange);
+                                        
+                                        switch(inventoryIndicator){
+                                            case 0: 
+                                            case 1:
+                                                itemList.get(choice1).subtractInventory(inventoryChange);
+                                                break;
+                                            case 2:
+                                                break;
+                                        }
+                                        
                                         break;
                                     case 3:
                                         System.out.print("Enter Inventory Change: ");
-                                        inventoryChange = in.nextInt();itemList.get(choice1).setInventory(inventoryChange);
+                                        inventoryChange = in.nextInt();
+                                        itemList.get(choice1).setInventory(inventoryChange);
                                         break;
                                     default:
                                         System.out.println("Enter in a valid number");
@@ -579,7 +618,8 @@ public class ValleyDepotApplication {
                                 System.out.println("Invalid Entry: Please enter a 10-digit phone number");
                                 System.out.print("Enter Vendor's phone number (numbers only): ");
                                 vendorPhone = in.nextLine();} 
-                            vendorList.add(new Vendor(vendorName, vendorAddress, vendorPhone));
+                            vendorList.add(new Vendor(countID, vendorName, vendorAddress, vendorPhone));
+                            countID++;
                             break;
                             
                         case 2:
@@ -646,16 +686,27 @@ public class ValleyDepotApplication {
             case 4:
                     Item itemSold;
                     int itemID;
+                    int inventoryIndicator;
                     int quantity;
                     String date; 
                     int customerChoice;
                     int saleCount = 0;
                     int listCount = 0;
-                    Customer customer; 
-                    for(int x = 0; x < itemList.size(); x++){
-                        System.out.println(listCount + ". " + itemList.get(x).getDescription());
-                        listCount ++; 
-                    }
+                    Customer customer;
+                    boolean cont;
+                    String option;
+                   
+                    
+                    while (cont = true) {
+                    
+                        
+                        for(int x = 0; x < itemList.size(); x++){
+                            System.out.println(listCount + ". " + itemList.get(x).getDescription());
+                            listCount ++; 
+                        }
+                        listCount = 0;
+                    
+                        
                         System.out.println("Select an Item: ");
                         itemID = in.nextInt();
                         
@@ -666,7 +717,24 @@ public class ValleyDepotApplication {
                             System.out.println("Please enter a positive value for quantity.");
                             System.out.println("Enter Quantity: ");
                             quantity = in.nextInt();
+                            
                         }
+                        
+                        inventoryIndicator = itemList.get(itemID).inventoryStatus(quantity);
+
+                        switch(inventoryIndicator){
+                                            case 0: 
+                                            case 1:
+                                                itemList.get(itemID).subtractInventory(quantity);
+                                                break;
+                                            case 2: 
+                                                System.out.println("NOT ENOUGH INVENTORY TO PERFORM CHANGE");
+                                                break;
+                                        }
+                        if(inventoryIndicator == 2){
+                            break;
+                        }
+                        
                         in.nextLine();
                         System.out.println("Enter Date of Delivery: ");
                         date = in.nextLine();
@@ -675,21 +743,36 @@ public class ValleyDepotApplication {
                         }    
                         System.out.println("Choose Customer: ");
                         customerChoice = in.nextInt();
+                        in.nextLine();
+                 
                         customer = customerList.get(customerChoice);
                         
-                        saleList.add(new Sale(itemList.get(itemID), quantity, date, customer));
+                        saleList.add(new Sale(itemList.get(itemID), quantity, date, customer, countID));
                         countID++;
-                        itemList.get(itemID).recordTransaction(new Sale(itemList.get(itemID), quantity, date, customer));
+                        itemList.get(itemID).recordTransaction(new Sale(itemList.get(itemID), quantity, date, customer, countID));
                         itemList.get(itemID).subtractInventory(quantity);
                         countID++; 
+                    
+                        System.out.println("Would you like to enter another sale? (y/n)");
+                        option = in.nextLine();
+                        if (option.equals("n")) {
+                            cont = false;
+                            break;
+                        }
+                        else if (option.equals("y") ) {
+                            cont = true;
+                            
+                        }
+                    }
+                    
                         break;
-             
+                    
             // Printing a Receipt    
             case 5:
                 int selectionOfSale = 0;
                 System.out.println("Select Number 0 through " + (saleList.size() - 1)); 
                 for (int i = 0; i < saleList.size(); i++){
-                    System.out.println(i + ". SaleID: " + saleList.get(i).saleID +  "\tCustomer Name: " + saleList.get(i).getCustomer().getName() + "\t On: " + saleList.get(i).date);
+                    System.out.println(i + ". SaleID: " + saleList.get(i).id +  "\tCustomer Name: " + saleList.get(i).getCustomer().getName() + "\t On: " + saleList.get(i).date);
                 }
                 System.out.print("----------------------------\nSelection: ");
                 selectionOfSale = in.nextInt();
@@ -787,6 +870,4 @@ public class ValleyDepotApplication {
     }  
     }
 }
-
-
 

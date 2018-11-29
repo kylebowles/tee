@@ -13,11 +13,11 @@ package CIS331GroupProject;
 
 public class Customer {
     private String firstName, lastName, address, phoneNumber, emailAddress; 
-    public static int customerCount;
+    //private int customerIDCount = 0;
     int customerID;
     
      Customer(String firstName, String lastName, String address,
-            String phoneNumber, String emailAddress){
+            String phoneNumber, String emailAddress, int uniqueID){
         if(!(firstName.equals("")))
         {
             this.firstName = firstName;
@@ -35,8 +35,7 @@ public class Customer {
         
         this.address = address;
         this.emailAddress = emailAddress; 
-        this.customerID = customerCount; 
-        customerCount++;
+        customerID = uniqueID; 
     }
     
     /*
@@ -90,7 +89,9 @@ public class Customer {
     
     public void setEmail(String emailAddress){
         this.emailAddress = emailAddress;
-    }  
+    }
+    
+   
     
     public String describeCustomer(){
         String output = "Name: " + this.getName() + "\nPhone Number: " + this.getPhoneNumber()
@@ -99,7 +100,7 @@ public class Customer {
     }
     @Override
     public String toString(){
-        return (this.getName() + " | Customer ID: " + this.customerID);
+        return (this.getName() + " | ID: " + this.customerID);
     }
     
 }
